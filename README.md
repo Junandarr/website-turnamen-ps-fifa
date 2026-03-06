@@ -1,1 +1,1314 @@
-https://junandarr.github.io/website-turnamen-ps-fifa/
+<!doctype html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran Turnamen FIFA PS</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0e27, #1a1f3a);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+    font-weight: 700;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(0, 255, 200, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 0, 150, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 
+      0 0 10px #00ffcc,
+      0 0 20px #00ffcc,
+      0 0 40px #00ffcc,
+      0 0 80px rgba(0, 255, 204, 0.5),
+      2px 2px 4px rgba(0,0,0,0.5);
+    color: #00ffcc;
+    animation: neonFlicker 3s ease-in-out infinite;
+  }
+
+  @keyframes neonFlicker {
+    0%, 100% {
+      text-shadow: 
+        0 0 10px #00ffcc,
+        0 0 20px #00ffcc,
+        0 0 40px #00ffcc,
+        0 0 80px rgba(0, 255, 204, 0.5);
+    }
+    50% {
+      text-shadow: 
+        0 0 10px #00ffcc,
+        0 0 20px #00ffcc,
+        0 0 40px #ff00ff,
+        0 0 80px rgba(255, 0, 255, 0.4);
+    }
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .card {
+    background: linear-gradient(135deg, rgba(0, 255, 200, 0.05) 0%, rgba(255, 0, 150, 0.05) 100%);
+    border: 2px solid rgba(0, 255, 204, 0.4);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 
+      0 0 20px rgba(0, 255, 204, 0.3),
+      inset 0 0 20px rgba(0, 255, 204, 0.1),
+      0 10px 30px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    position: relative;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.5), transparent);
+    animation: scanlines 2s linear infinite;
+  }
+
+  @keyframes scanlines {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #00ffcc;
+    border-bottom: 3px solid #ff00ff;
+    padding-bottom: 10px;
+    text-shadow: 
+      0 0 10px #00ffcc,
+      0 0 20px #ff00ff;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #00ffcc;
+    text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    font-size: 14px;
+    background: rgba(10, 20, 40, 0.9);
+    color: #00ffcc !important;
+    font-weight: 700;
+  }
+
+  input::placeholder {
+    color: rgba(0, 255, 204, 0.5);
+  }
+  
+  input:autofill,
+  input:autofill:hover,
+  input:autofill:focus {
+    -webkit-text-fill-color: #00ffcc !important;
+    color: #00ffcc !important;
+    -webkit-box-shadow: 0 0 0 1000px rgba(10, 20, 40, 0.9) inset !important;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #00ffcc;
+    box-shadow: 
+      0 0 15px rgba(0, 255, 204, 0.6),
+      inset 0 0 15px rgba(0, 255, 204, 0.1);
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.1) 0%, rgba(255, 0, 150, 0.1) 100%);
+    border: 2px solid rgba(0, 255, 204, 0.4);
+    color: #00ffcc;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+      0 0 15px rgba(0, 255, 204, 0.3),
+      inset 0 0 15px rgba(0, 255, 204, 0.05);
+    text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+  }
+
+  button:hover {
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.2) 0%, rgba(255, 0, 150, 0.2) 100%);
+    border-color: #ff00ff;
+    transform: translateY(-2px);
+    box-shadow: 
+      0 0 30px rgba(0, 255, 204, 0.6),
+      0 0 20px rgba(255, 0, 150, 0.4),
+      inset 0 0 20px rgba(0, 255, 204, 0.1),
+      0 5px 15px rgba(0,0,0,0.3);
+    color: #ff00ff;
+    text-shadow: 0 0 12px rgba(255, 0, 150, 0.6);
+  }
+
+  .success {
+    display: none;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 255, 100, 0.15) 0%, rgba(0, 255, 100, 0.05) 100%);
+    border: 2px solid rgba(0, 255, 100, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+    animation: slideIn 0.3s ease;
+    color: #00ff64;
+    box-shadow: 
+      0 0 20px rgba(0, 255, 100, 0.3),
+      inset 0 0 20px rgba(0, 255, 100, 0.1);
+    text-shadow: 0 0 10px rgba(0, 255, 100, 0.4);
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .daftar-list {
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.05) 0%, rgba(0, 255, 200, 0.05) 100%);
+    border: 2px solid rgba(255, 0, 150, 0.4);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 
+      0 0 20px rgba(255, 0, 150, 0.3),
+      inset 0 0 20px rgba(255, 0, 150, 0.1),
+      0 10px 30px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    position: relative;
+  }
+
+  .daftar-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 150, 0.5), transparent);
+    animation: scanlines 2s linear infinite;
+  }
+
+  .daftar-list h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #ff00ff;
+    border-bottom: 3px solid #ff00ff;
+    padding-bottom: 10px;
+    text-shadow: 
+      0 0 10px #ff00ff,
+      0 0 20px #ff00ff;
+  }
+
+  .daftar-list p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: rgba(255, 0, 150, 0.9);
+    text-shadow: 0 0 8px rgba(255, 0, 150, 0.4);
+  }
+
+  .daftar-list button {
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+    color: #ffd700;
+  }
+
+  .daftar-list button:hover {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  .peserta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: rgba(0, 255, 200, 0.08);
+    border-radius: 8px;
+    border-left: 4px solid #00ffcc;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .peserta-item:hover {
+    background: rgba(0, 255, 200, 0.12);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+  }
+
+  .peserta-info {
+    flex: 1;
+  }
+
+  .peserta-nama {
+    font-weight: bold;
+    color: #00ffcc;
+    margin-bottom: 5px;
+    font-size: 15px;
+    text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+  }
+
+  .peserta-detail {
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .btn-hapus {
+    background: linear-gradient(135deg, rgba(255, 68, 68, 0.3) 0%, rgba(255, 68, 68, 0.1) 100%);
+    border: 1px solid rgba(255, 68, 68, 0.4);
+    color: #ff4444;
+    padding: 6px 12px;
+    font-size: 12px;
+    width: auto;
+    margin-left: 10px;
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.2);
+    text-shadow: 0 0 6px rgba(255, 68, 68, 0.3);
+  }
+
+  .btn-hapus:hover {
+    background: linear-gradient(135deg, rgba(255, 68, 68, 0.5) 0%, rgba(255, 68, 68, 0.3) 100%);
+    border-color: #ff4444;
+    box-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+  }
+
+  .counter {
+    text-align: center;
+    color: #00ffcc;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 16px;
+    padding: 12px;
+    background: rgba(0, 255, 204, 0.08);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.15);
+  }
+
+  .badge-peserta {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.3) 0%, rgba(255, 0, 150, 0.3) 100%);
+    border: 1px solid rgba(0, 255, 204, 0.4);
+    color: #00ffcc;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+    text-shadow: 0 0 6px rgba(0, 255, 204, 0.3);
+  }
+
+  /* Modal Styles */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, rgba(0, 255, 200, 0.05) 0%, rgba(255, 0, 150, 0.05) 100%);
+    border: 2px solid rgba(0, 255, 204, 0.4);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 
+      0 0 40px rgba(0, 255, 204, 0.3),
+      0 0 80px rgba(0, 255, 204, 0.2),
+      0 20px 60px rgba(0,0,0,0.5);
+    animation: slideUp 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+  }
+
+  .modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.5), transparent);
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translate(-50%, -60%);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+
+  .modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffd700;
+    font-size: 1.5em;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+
+  .modal-content label {
+    color: #ffd700;
+    margin-bottom: 5px;
+  }
+
+  .modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    font-size: 14px;
+    background: rgba(255,255,255,0.95);
+    color: #000 !important;
+    font-weight: 700;
+  }
+
+  .modal-content input:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  }
+
+  .modal-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .modal-buttons button {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-masuk {
+    background: #ffd700;
+    color: #1e3c72;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  }
+
+  .btn-masuk:hover {
+    background: #ffed4e;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+  }
+
+  .btn-batal {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+  }
+
+  .btn-batal:hover {
+    background: rgba(255, 215, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .error-message {
+    display: none;
+    background: linear-gradient(135deg, rgba(255, 68, 68, 0.3) 0%, rgba(255, 68, 68, 0.1) 100%);
+    border: 2px solid #ff4444;
+    color: #ff8888;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+  }
+
+  .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .password-container input {
+    width: 100%;
+    padding-right: 40px;
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #764ba2;
+    font-size: 18px;
+    cursor: pointer;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .toggle-password:hover {
+    transform: scale(1.2);
+  }
+
+  /* Halaman Peserta */
+  .peserta-page {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    z-index: 2000;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  .peserta-page.active {
+    display: block;
+  }
+
+  .peserta-header {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    text-align: center;
+  }
+
+  .peserta-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .peserta-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .peserta-stats {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    color: #ffd700;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  }
+
+  .peserta-stats h2 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+  }
+
+  .peserta-list-full {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .peserta-card {
+    background: rgba(255, 215, 0, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+  }
+
+  .peserta-card:hover {
+    background: rgba(255, 215, 0, 0.12);
+    transform: translateY(-5px);
+    border-color: #ffd700;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+  }
+
+  .peserta-card .no {
+    font-size: 12px;
+    color: #ffd700;
+    margin-bottom: 5px;
+  }
+
+  .peserta-card .nama {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ffd700;
+  }
+
+  .peserta-card .detail-item {
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .peserta-card-footer {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+  }
+
+  .btn-hapus-peserta {
+    width: 100%;
+    background: #ff4444;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-hapus-peserta:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+  }
+
+  .btn-keluar {
+    max-width: 900px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .btn-bukti-pembayaran {
+    width: 100%;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.7) 0%, rgba(76, 175, 80, 0.5) 100%);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+  }
+
+  .btn-bukti-pembayaran:hover {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+  }
+
+  .peserta-card .status-pembayaran {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    margin-top: 8px;
+  }
+
+  .status-belum {
+    background: rgba(255, 152, 0, 0.7);
+    color: white;
+  }
+
+  .status-sudah {
+    background: rgba(76, 175, 80, 0.7);
+    color: white;
+  }
+
+  .status-terverifikasi {
+    background: rgba(76, 175, 80, 0.9);
+    color: white;
+    font-weight: bold;
+  }
+
+  .status-tidak-terverifikasi {
+    background: rgba(244, 67, 54, 0.9);
+    color: white;
+    font-weight: bold;
+  }
+
+  .verifikasi-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .btn-terverifikasi {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.7) 0%, rgba(76, 175, 80, 0.5) 100%);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-terverifikasi:hover {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+  }
+
+  .btn-tidak-terverifikasi {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.7) 0%, rgba(244, 67, 54, 0.5) 100%);
+    border: 1px solid rgba(244, 67, 54, 0.5);
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-tidak-terverifikasi:hover {
+    background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(244, 67, 54, 0.4);
+  }
+
+  /* Modal Upload Bukti */
+  .modal-bukti-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 3000;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .modal-bukti-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 215, 0, 0.02) 100%);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.25), 0 20px 60px rgba(0,0,0,0.4);
+    animation: slideUp 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .modal-bukti-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffd700;
+    font-size: 1.5em;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+
+  .modal-bukti-content label {
+    color: #ffd700;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  .file-input-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+  }
+
+  .file-input-wrapper input[type="file"] {
+    display: none;
+  }
+
+  .file-input-label {
+    display: block;
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px dashed rgba(255, 215, 0, 0.4);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  .file-input-label:hover {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+  }
+
+  .preview-image {
+    width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: none;
+    object-fit: cover;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+  }
+
+  .modal-bukti-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .modal-bukti-buttons button {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-kirim {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.7) 0%, rgba(76, 175, 80, 0.5) 100%);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    color: white;
+  }
+
+  .btn-kirim:hover {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+  }
+
+  .btn-tutup-bukti {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+  }
+
+  .btn-tutup-bukti:hover {
+    background: rgba(255, 215, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .peserta-info-detail {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  }
+
+  .peserta-info-detail:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      grid-template-columns: 1fr;
+    }
+
+    h1 {
+      font-size: 1.8em;
+    }
+
+    .peserta-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .btn-hapus {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 10px;
+    }
+
+    .modal-content {
+      width: 95%;
+    }
+
+    .peserta-list-full {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <!-- Halaman Utama -->
+  <div class="container" id="mainPage">
+   <h1>🎮 Turnamen FIFA PS</h1>
+   <div class="content">
+    <!-- Form Pendaftaran -->
+    <div class="card">
+     <h2>📝 Pendaftaran</h2>
+     <form id="formTurnamen">
+      <label>Nama Lengkap</label> <input type="text" id="nama" placeholder="Masukkan nama lengkap" required> <label>Asal / Kota</label> <input type="text" id="kota" placeholder="Masukkan asal atau kota" required> <label>No WhatsApp</label> <input type="tel" id="whatsapp" placeholder="Contoh: 08xxxxxxxxxx" required> <label>🏆 Tim</label> <input type="text" id="psn" placeholder="Masukkan nama tim Anda" required> <label>💳 Bukti Pembayaran *</label>
+      <div class="file-input-wrapper"><input type="file" id="buktiFile" accept="image/*" required> <label for="buktiFile" class="file-input-label">📁 Klik atau drag bukti pembayaran</label> <img id="previewBuktiFile" class="preview-image" alt="Preview Bukti">
+      </div><button type="submit">Daftar Turnamen</button>
+     </form>
+     <div class="success" id="successMessage">
+      <h3>✅ Pendaftaran Berhasil!</h3>
+      <p>Selamat! Anda telah terdaftar dalam turnamen FIFA PS.</p>
+     </div>
+    </div><!-- Info Daftar Peserta & Kirim Bukti -->
+    <div class="daftar-list">
+     <h2>🔐 Login Admin</h2><button type="button" onclick="openLoginModal()">🔐 ADMIN</button>
+    </div>
+   </div>
+  </div><!-- Modal Login -->
+  <div class="modal-overlay" id="loginModal" onclick="closeLoginModal(event)">
+   <div class="modal-content" onclick="event.stopPropagation()">
+    <h2>🔐 Login Admin</h2>
+    <div class="error-message" id="errorMessage">
+     Nama atau password salah! Coba lagi.
+    </div>
+    <form id="loginForm" onsubmit="checkPassword(event)">
+     <label>Nama Admin</label> <input type="text" id="adminName" placeholder="Masukkan nama admin" required> <label>Password</label>
+     <div class="password-container">
+      <input type="password" id="password" placeholder="Masukkan password" required> <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">👁️</button>
+     </div>
+     <div class="modal-buttons">
+      <button type="submit" class="btn-masuk">Masuk</button> <button type="button" class="btn-batal" onclick="closeLoginModal()">Batal</button>
+     </div>
+    </form>
+   </div>
+  </div><!-- Halaman Daftar Peserta -->
+  <div class="peserta-page" id="pesertaPage">
+   <div class="peserta-header">
+    <h1>🎮 Turnamen FIFA PS</h1>
+    <p style="font-size: 1.2em; color: #ffd700;">Daftar Peserta Lengkap</p>
+   </div>
+   <div class="peserta-container">
+    <div class="peserta-stats">
+     <h2 id="pesertaStats">0 Peserta</h2>
+     <p>Total peserta yang terdaftar dalam turnamen</p>
+    </div>
+    <div class="peserta-list-full" id="pesertaListFull"></div><button type="button" class="btn-keluar" onclick="keluar()">↩️ Kembali ke Pendaftaran</button>
+   </div>
+  </div><!-- Modal Upload Bukti Pembayaran -->
+  <div class="modal-bukti-overlay" id="buktiModal" onclick="closeBuktiModal(event)">
+   <div class="modal-bukti-content" onclick="event.stopPropagation()">
+    <h2>💳 Bukti Pembayaran</h2>
+    <div class="peserta-info-detail"><strong id="buktiPesertaNama" style="color: #ffd700;"></strong>
+    </div>
+    <div id="buktiDisplayContainer">
+     <img id="buktiImageDisplay" class="preview-image" alt="Bukti Pembayaran" style="display: block; margin: 15px 0;">
+    </div>
+    <div class="modal-bukti-buttons">
+     <button type="button" class="btn-tutup-bukti" onclick="closeBuktiModal()" style="width: 100%;">Tutup</button>
+    </div>
+   </div>
+  </div>
+  <script>
+  const ADMIN_NAME = "FIFA PLAYSTATION";
+  const ADMIN_PASSWORD = "PESFIFA2K";
+
+  let pesertaList = [];
+
+  let nextId = 1;
+  let lastDeletedPeserta = null;
+
+  function updatePesertaCount() {
+    document.getElementById('totalPeserta').textContent = pesertaList.length;
+  }
+
+  function openLoginModal() {
+    document.getElementById('loginModal').style.display = 'block';
+    document.getElementById('adminName').value = '';
+    document.getElementById('password').value = '';
+    document.getElementById('errorMessage').style.display = 'none';
+  }
+
+  function closeLoginModal(event) {
+    if (event && event.target !== document.getElementById('loginModal')) return;
+    document.getElementById('loginModal').style.display = 'none';
+    document.getElementById('loginForm').reset();
+    document.getElementById('errorMessage').style.display = 'none';
+  }
+
+  function checkPassword(e) {
+    e.preventDefault();
+    const adminName = document.getElementById('adminName').value;
+    const password = document.getElementById('password').value;
+    
+    if (adminName === ADMIN_NAME && password === ADMIN_PASSWORD) {
+      document.getElementById('loginModal').style.display = 'none';
+      showPesertaPage();
+    } else {
+      document.getElementById('errorMessage').style.display = 'block';
+      document.getElementById('adminName').value = '';
+      document.getElementById('password').value = '';
+    }
+  }
+
+  function showPesertaPage() {
+    document.getElementById('mainPage').style.display = 'none';
+    document.getElementById('pesertaPage').classList.add('active');
+    renderPesertaFull();
+  }
+
+  function renderPesertaFull() {
+    const container = document.getElementById('pesertaListFull');
+    container.innerHTML = '';
+
+    pesertaList.forEach((peserta, index) => {
+      const card = document.createElement('div');
+      card.className = 'peserta-card';
+      card.dataset.id = peserta.id;
+      // Status verifikasi pembayaran
+      let verifikasiStatus = peserta.verifikasiPembayaran || 'pending';
+      let verifikasiHTML = '';
+      if (verifikasiStatus === 'terverifikasi') {
+        verifikasiHTML = '<div class="status-pembayaran status-terverifikasi" style="margin-top: 8px;">✅ Terverifikasi</div>';
+      } else if (verifikasiStatus === 'tidak_terverifikasi') {
+        verifikasiHTML = '<div class="status-pembayaran status-tidak-terverifikasi" style="margin-top: 8px;">❌ Tidak Terverifikasi</div>';
+      }
+      
+      // Tampilkan tombol verifikasi jika belum diverifikasi
+      let verifikasiButtonsHTML = '';
+      if (verifikasiStatus === 'pending') {
+        verifikasiButtonsHTML = `
+          <div class="verifikasi-buttons">
+            <button type="button" class="btn-terverifikasi" onclick="verifikasiPembayaran(${peserta.id}, 'terverifikasi')">✅</button>
+            <button type="button" class="btn-tidak-terverifikasi" onclick="verifikasiPembayaran(${peserta.id}, 'tidak_terverifikasi')">❌</button>
+          </div>
+        `;
+      }
+      
+      card.innerHTML = `
+        <div class="no">Peserta #${index + 1}</div>
+        <div class="nama">${peserta.nama}</div>
+        <div class="detail-item">📍 ${peserta.kota}</div>
+        <div class="detail-item">📱 ${peserta.whatsapp}</div>
+        <div class="detail-item">🏆 ${peserta.psn}</div>
+        ${verifikasiHTML}
+        ${verifikasiButtonsHTML}
+        <div class="peserta-card-footer">
+          <button type="button" class="btn-bukti-pembayaran" onclick="openBuktiModal(${peserta.id})">👁️ Lihat Bukti</button>
+          <button type="button" class="btn-hapus-peserta" onclick="hapusPeserta(${peserta.id})">🗑️ Hapus</button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    document.getElementById('pesertaStats').textContent = pesertaList.length + ' Peserta';
+  }
+
+  function keluar() {
+    document.getElementById('pesertaPage').classList.remove('active');
+    document.getElementById('mainPage').style.display = 'block';
+  }
+
+  function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password');
+    const toggleBtn = document.querySelector('.toggle-password');
+    
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      toggleBtn.textContent = '🙈';
+    } else {
+      passwordInput.type = 'password';
+      toggleBtn.textContent = '👁️';
+    }
+  }
+
+  function hapusPeserta(id) {
+    const pesertaToDelete = pesertaList.find(p => p.id === id);
+    if (pesertaToDelete) {
+      lastDeletedPeserta = pesertaToDelete;
+      pesertaList = pesertaList.filter(p => p.id !== id);
+      renderPesertaFull();
+      updatePesertaCount();
+      showUndoButton();
+    }
+  }
+
+  function showUndoButton() {
+    const container = document.getElementById('pesertaListFull');
+    const existingUndo = document.getElementById('undoContainer');
+    
+    if (existingUndo) {
+      existingUndo.remove();
+    }
+
+    const undoContainer = document.createElement('div');
+    undoContainer.id = 'undoContainer';
+    undoContainer.style.cssText = `
+      background: rgba(76, 175, 80, 0.2);
+      border: 2px solid #4CAF50;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+    `;
+    undoContainer.innerHTML = `
+      <span style="color: #4CAF50; font-weight: bold;">✓ Peserta dihapus</span>
+      <button type="button" style="
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      " onclick="undoPeserta()" onmouseover="this.style.background='#45a049'" onmouseout="this.style.background='#4CAF50'">↩️ Urungkan</button>
+    `;
+    
+    container.insertBefore(undoContainer, container.firstChild);
+
+    setTimeout(() => {
+      if (document.getElementById('undoContainer')) {
+        document.getElementById('undoContainer').remove();
+        lastDeletedPeserta = null;
+      }
+    }, 5000);
+  }
+
+  function undoPeserta() {
+    if (lastDeletedPeserta) {
+      pesertaList.push(lastDeletedPeserta);
+      lastDeletedPeserta = null;
+      renderPesertaFull();
+      updatePesertaCount();
+    }
+  }
+
+  function verifikasiPembayaran(pesertaId, status) {
+    const peserta = pesertaList.find(p => p.id === pesertaId);
+    if (peserta) {
+      peserta.verifikasiPembayaran = status;
+      renderPesertaFull();
+      
+      // Tampilkan notifikasi
+      const statusText = status === 'terverifikasi' ? 'Terverifikasi ✅' : 'Tidak Terverifikasi ❌';
+      showSuccessNotif(`${peserta.nama} - ${statusText}`, status === 'terverifikasi' ? 'success' : 'error');
+    }
+  }
+
+  function openBuktiModal(pesertaId) {
+    const peserta = pesertaList.find(p => p.id === pesertaId);
+    if (peserta) {
+      if (!peserta.buktiPembayaran) {
+        showValidationError('⚠️ Peserta ini belum upload bukti pembayaran!');
+        return;
+      }
+      document.getElementById('buktiPesertaNama').textContent = peserta.nama;
+      document.getElementById('buktiImageDisplay').src = peserta.buktiImage;
+      document.getElementById('buktiModal').style.display = 'block';
+    }
+  }
+
+  function closeBuktiModal(event) {
+    if (event && event.target !== document.getElementById('buktiModal')) return;
+    document.getElementById('buktiModal').style.display = 'none';
+  }
+
+  document.getElementById('buktiFile').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const preview = document.getElementById('previewBuktiFile');
+        preview.src = event.target.result;
+        preview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  function kirimBuktiPembayaran(event) {
+    event.preventDefault();
+  }
+
+  function showSuccessNotif(message, type = 'success') {
+    const notif = document.createElement('div');
+    notif.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: ${type === 'error' ? '#f44336' : '#4CAF50'};
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      z-index: 4000;
+      animation: slideIn 0.3s ease;
+      font-weight: bold;
+    `;
+    notif.textContent = message;
+    document.body.appendChild(notif);
+    
+    setTimeout(() => {
+      notif.remove();
+    }, 3000);
+  }
+
+  document.getElementById('formTurnamen').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value.trim();
+    const kota = document.getElementById('kota').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const psn = document.getElementById('psn').value.trim();
+    const buktiFile = document.getElementById('buktiFile').files[0];
+
+    // Validasi semua field
+    if (!nama) {
+      showValidationError('⚠️ Masukkan nama lengkap Anda!');
+      return;
+    }
+    if (!kota) {
+      showValidationError('⚠️ Masukkan asal atau kota Anda!');
+      return;
+    }
+    if (!whatsapp) {
+      showValidationError('⚠️ Masukkan nomor WhatsApp Anda!');
+      return;
+    }
+    if (!psn) {
+      showValidationError('⚠️ Masukkan nama tim Anda!');
+      return;
+    }
+    if (!buktiFile) {
+      showValidationError('⚠️ Upload bukti pembayaran terlebih dahulu!');
+      return;
+    }
+
+    // Baca file sebagai data URL
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      pesertaList.push({
+        id: nextId++,
+        nama: nama,
+        kota: kota,
+        whatsapp: whatsapp,
+        psn: psn,
+        buktiPembayaran: true,
+        statusApproval: 'pending',
+        buktiImage: event.target.result
+      });
+
+      updatePesertaCount();
+
+      document.getElementById('successMessage').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('successMessage').style.display = 'none';
+      }, 3000);
+
+      document.getElementById('formTurnamen').reset();
+      document.getElementById('previewBuktiFile').style.display = 'none';
+    };
+    reader.readAsDataURL(buktiFile);
+  });
+
+  function showValidationError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.style.cssText = `
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff9800;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      z-index: 4000;
+      animation: slideIn 0.3s ease;
+      font-weight: bold;
+    `;
+    errorDiv.textContent = message;
+    document.body.appendChild(errorDiv);
+    
+    setTimeout(() => {
+      errorDiv.remove();
+    }, 3000);
+  }
+
+  // Initialize
+  updatePesertaCount();
+</script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d7d00ef203b283c',t:'MTc3Mjc1NDQyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d7ea20dc08b6d09',t:'MTc3Mjc3MTUwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
